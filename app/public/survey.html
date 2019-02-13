@@ -161,7 +161,7 @@
         <br />
         <footer class="footer">
             <div class="container">
-                <p><a href="/api/friends" target='_blank'>API Friends List</a> | <a href="https://github.com/DerekCutler/FriendFinder" target='_blank'>GitHub</a></p>
+                <p><a href="https://github.com/DerekCutler/FriendFinder" target='_blank'>GitHub</a></p>
             </div>
         </footer>
     </div>
@@ -214,11 +214,11 @@
             $.get(apiFriendsRoute, function(data) {
                 var match = makeMatch(data);
                 if (match.name !== undefined) {
-                    modalTitle.text('You have a match!');
+                    modalTitle.text('Nice!');
                     modalBody.html('<p class="strong">You\'re most compatible with:</p><p>' + match.name + '</p><img src="' + match.image + '" height="45">');
                 } else {
-                    modalTitle.text('Too few friends');
-                    modalBody.text('Sorry, there are too few friends to match you with.');
+                    modalTitle.text('Dang!');
+                    modalBody.text('We couldn\'t find a friend for you.');
                 }
             }).then(function() {
                 modal.show();
@@ -226,8 +226,8 @@
                 $.post(apiFriendsRoute, newPerson);
             });
         } else {
-            modalTitle.text('Error');
-            modalBody.text('Please make sure all questions have been filled in.');
+            modalTitle.text('Ruh-roh!');
+            modalBody.text('Please ensure that you have filled out all the questions.');
             modal.show();
         }
     });
