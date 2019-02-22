@@ -3,7 +3,7 @@
 // ==========================================
 
 var express = require('express');
-var path = require('path');
+// var path = require('path');
 
 // ==========================================
 // Sets up the Express App
@@ -19,7 +19,7 @@ var PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(express.text());
-// app.use(express.json({ type: 'application/vnd.api+json' }));
+app.use(express.json({ type: 'application/vnd.api+json' }));
 
 // ==========================================
 // Starts the server to begin listening
